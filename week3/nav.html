@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html><body>
+<h3>Books</h3>
+<a href="#" onclick="loadBook(1)">Java Programming</a><br>
+<a href="#" onclick="loadBook(2)">Web Technology</a><br>
+
+<script>
+var books = {
+    1: {title:"Java Programming", author:"Herbert Schildt", price:"Rs.450"},
+    2: {title:"Web Technology", author:"Uttam Roy", price:"Rs.380"}
+};
+
+function loadBook(id) {
+    var book = books[id];
+    var content = "<h2>" + book.title + "</h2>" +
+                  "<p>Author: " + book.author + "</p>" +
+                  "<p>Price: " + book.price + "</p>";
+    parent.frames["contentFrame"].document.body.innerHTML = content;
+}
+</script>
+</body></html>

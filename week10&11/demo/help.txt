@@ -1,0 +1,5 @@
+javac -cp "/Users/pavan/Music/tomcat/lib/servlet-api.jar" -d /Users/pavan/Music/tomcat/webapps/bookstore/WEB-INF/classes LoginServlet.java LogoutServlet.java
+
+
+
+mvn exec:java -Dexec.mainClass="com.bookstore.Main"

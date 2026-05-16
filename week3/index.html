@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Signup Form</title>
+        <script>
+            function validate(){
+                var name = document.getElementById("username").value;
+                var pass = document.getElementById("password").value;
+                var cpass = document.getElementById("cpassword").value;
+                var err = document.getElementById("err");
+                var reg1 = /^[a-zA-z0-9_]+$/
+                var reg2 = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@#$!%^&*])[A-Za-z\d@#$%^&*]{8,}$/
+                if(name.length==0){
+                    err.innerHTML = "Username cant be empty";
+                    return false;
+                }
+                if(name.length<5){
+                    err.innerText = "username must be min 5 chars";
+                    return false;
+                }
+                if(!reg1.test(name)){
+                    err.innerText = "username must contain only alphabets,numeric & _";
+                    return false;
+                }
+                if(pass.length==0){
+                    err.innerHTML = "password cant be empty";
+                    return false;
+                }
+                if(pass.length<5){
+                    err.innerText = "pass must be min 5 char long";
+                    return false;
+                }
+                if(!reg2.test(pass)){
+                    err.innerText = "pass not following rules";
+                    return false;
+                }
+                if(pass!=cpass){
+                    err.innerHTML = "password and confirm password must mathc";
+                    return false;
+                }
+                err.innerText = "Login successful";
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit="return validate()">
+            <label>username</label><br>
+            <input type="text"  id="username" /><br>
+            <label>password</label><br>
+            <input type="password" id="password"/><br>
+            <label>confirm password</label><br>
+            <input type="password" id="cpassword"/><br>
+            <input type="submit" value="login"/><br>
+        </form>
+        <p id="err"></p>
+    </body>
+</html>

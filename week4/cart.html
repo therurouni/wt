@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div>
+        <p> 
+        Java Programming -₹450<button onclick="addToCart('Java Programming',450)">Add to cart</button>
+        </p>
+          <p> 
+        Rust Programming -₹1050<button onclick="addToCart('Rust Programming',1050)">Add to cart</button>
+        </p>
+          <p> 
+        Python Programming -₹250<button onclick="addToCart('Python Programming',250)">Add to cart</button>
+        </p>
+        </div>
+
+        <h3>Cart:</h3>
+        <div id="cart"></div>
+        <p><b>Total:₹<span id="total">0</span></b></p>
+    <script>
+        var cart =[];
+        function addToCart(title,price){
+            cart.push({title:title,price:price});
+            displayCart();
+        }
+        function removeFromCart(index){
+            cart.splice(index,1);
+            displayCart();
+        }
+        function displayCart(){
+            var html="";
+            var total=0;
+            for(var i=0;i<cart.length;i++){
+                html+=`${cart[i].title}-₹${cart[i].price}
+                    <button onclick='removeFromCart(${i})'>Remove</button><br>`
+                total +=cart[i].price;
+            }
+            console.log(total);
+            document.getElementById("cart").innerHTML=html;
+            document.getElementById("total").innerHTML = total;
+        }
+    </script>
+</body>
+</html>
+
